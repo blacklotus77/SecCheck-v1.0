@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecCheck Results</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: 50px auto; padding: 20px; background: #f8fafc; }
+        .box { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; background: white; }
+        .btn { display: inline-block; padding: 10px 20px; background: #16a34a; color: white; text-decoration: none; border-radius: 5px; }
+        .btn:hover { background: #15803d; }
+        h2 { color: #1e40af; }
+        .missing { color: #dc2626; font-weight: bold; }
+        .present { color: #16a34a; font-weight: bold; }
+        a { color: #2563eb; }
+    </style>
+</head>
+<body>
+    <h2>Scan Results: {{ domain }}</h2>
+
+    <div class="box">
+        <h3>SSL Certificate</h3>
+        <p>Expires in: <strong>{{ ssl_days }} days</strong></p>
+    </div>
+
+    <div class="box">
+        <h3>Open Ports</h3>
+        {% if ports %}
+            {% for port in ports %}
+                <p>Port {{ port }} - OPEN</p>
+            {% endfor %}
+        {% else %}
+            <p>No common ports open</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        <h3>Security Headers</h3>
+        {% for header, status in headers.items() %}
+            <p>{{ header }}: <span class="{{ status|lower }}">{{ status }}</span></p>
+        {% endfor %}
+    </div>
+
+    <a href="/download_pdf?domain={{ domain }}" class="btn">Download PDF Report</a>
+    <br><br>
+    <a href="/">Scan Another Domain</a>
+</body>
+</html>
+
