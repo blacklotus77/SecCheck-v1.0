@@ -19,11 +19,11 @@ TECH-STACK:
 INSTALLATION AND RUN LOCALLY:
 1. Clone repo: git clone https://github.com/blacklotus77/SecCheck.git
 2. Go to folder: cd SecCheck
-3. Install dependencies: pip install -r http://requirements.txt
-4. Run app: python http://app.py
-5. Open http://127.0.0.1:5000 in browser
+3. Install dependencies: pip install -r requirements.txt
+4. Run app: python app.py
+5. Open 127.0.0.1:5000 in browser
 
-http://REQUIREMENTS.TXT:
+REQUIREMENTS.TXT:
 Flask==3.0.0
 requests==2.31.0
 reportlab==4.0.7
@@ -37,7 +37,7 @@ HOW IT WORKS:
 
 AUTHOR:
 blacklotus77
-First cybersecurity project - feedback welcome
+Feedback welcome
 
 LICENSE:
 MIT License - free to use and modify
